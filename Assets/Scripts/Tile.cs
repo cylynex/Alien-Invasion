@@ -9,11 +9,11 @@ public class Tile : MonoBehaviour {
     GameController gc;
     [SerializeField] bool isPlacable = true;
     [SerializeField] GameObject towerBuildMenu;
-    bool occupied = false;
+    [SerializeField] bool isOccupied = false;
+    public bool IsOccupied { set { isOccupied = value; } }
 
     private void Start() {
         gc = FindObjectOfType<GameController>();
-        //towerBuildMenu = GameObject.FindGameObjectWithTag("BuildTowerMenu");
     }
 
     private void OnMouseDown() {
@@ -24,12 +24,10 @@ public class Tile : MonoBehaviour {
         }
         */
 
-        if (isPlacable) {
-            print("popping menu");
+        if (isPlacable && !isOccupied) {
             towerBuildMenu.SetActive(true);
             towerBuildMenu.GetComponent<TowerBuilderMenu>().EngageTile(gameObject);
         }
-
     }
 
     public void SetPlacable(bool placable) {

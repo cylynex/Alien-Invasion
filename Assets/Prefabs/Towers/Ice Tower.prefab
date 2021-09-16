@@ -112,6 +112,7 @@ MonoBehaviour:
   towerName: Fire Tower
   range: 30
   towerCost: 75
+  isBuiltYet: 1
   target: {fileID: 0}
   fireTime: 3
   fireTimer: 0

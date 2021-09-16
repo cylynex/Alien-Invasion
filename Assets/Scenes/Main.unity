@@ -5884,7 +5884,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &612634811
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5961,7 +5961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireTower: {fileID: 2460507985396282197, guid: 2c0f3e61e2bfb564da37d611bc08bdaf, type: 3}
-  iceTower: {fileID: 0}
+  iceTower: {fileID: 2460507985396282197, guid: 5637eb5ae744d194383e419ade91289b, type: 3}
   activeTile: {fileID: 0}
 --- !u!1001 &647771782
 PrefabInstance:

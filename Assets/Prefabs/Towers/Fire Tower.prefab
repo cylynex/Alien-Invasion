@@ -110,8 +110,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerName: Fire Tower
-  towerCost: 50
   range: 20
+  towerCost: 50
+  isBuiltYet: 1
   target: {fileID: 0}
   fireTime: 2
   fireTimer: 0

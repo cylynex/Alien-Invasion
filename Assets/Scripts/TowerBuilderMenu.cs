@@ -14,16 +14,33 @@ public class TowerBuilderMenu : MonoBehaviour {
     }
 
     public void SelectFireTower() {
-        print(activeTile.transform.position);
-        gc.CreateTower(activeTile.transform, fireTower);
+        SelectTower(fireTower);
     }
 
     public void SelectIceTower() {
-        gc.CreatePlacableTower(iceTower);
+        SelectTower(iceTower);
+    }
+
+    public void SelectTower(GameObject tower) {
+        if (gc.CreateTower(activeTile.transform, tower)) {
+            activeTile.GetComponent<Tile>().IsOccupied = true;
+            UnColor();
+            gameObject.SetActive(false);
+        } else {
+            UnColor();
+            gameObject.SetActive(false);
+        }
     }
 
     public void EngageTile(GameObject targetTile) {
+        if (activeTile != null) UnColor();
         activeTile = targetTile;
+        activeTile.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+    }
+
+    // TODO - Make this get its original color and flip it back not turn it white.
+    void UnColor() {
+        activeTile.GetComponentInChildren<MeshRenderer>().material.color = Color.white;
     }
 
 
