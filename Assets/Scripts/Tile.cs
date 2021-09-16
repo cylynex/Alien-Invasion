@@ -34,6 +34,7 @@ public class Tile : MonoBehaviour {
         } else {
             print("ok show other stuff this tiles already busy");
             // Show range ring
+            gc.ClearActiveTile();
             tower.GetComponent<Tower>().RangeCircle = true;
         }
     }

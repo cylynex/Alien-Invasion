@@ -62,4 +62,9 @@ public class GameController : MonoBehaviour {
         Color();
     }
 
+    public void ClearActiveTile() {
+        UnColor();
+        activeTile = null;
+    }
+
 }
