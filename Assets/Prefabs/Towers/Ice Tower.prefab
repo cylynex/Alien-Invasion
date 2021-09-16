@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 06a9533b89004ba4591a1238e03f7c40, type: 2}
+  - {fileID: 2100000, guid: 3673dcf58e232ac41a7c572803b6372f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,7 +110,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerName: Fire Tower
-  range: 20
+  range: 30
+  towerCost: 75
   target: {fileID: 0}
   fireTime: 3
   fireTimer: 0

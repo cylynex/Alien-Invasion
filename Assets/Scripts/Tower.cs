@@ -8,6 +8,10 @@ public class Tower : MonoBehaviour {
     [Header("Settings")]
     [SerializeField] string towerName;
     [SerializeField] float range;
+    [SerializeField] int towerCost;
+    public int TowerCost { get { return towerCost; } }
+
+    [SerializeField] bool isBuiltYet = true;
 
     [SerializeField] GameObject target;
     public GameObject Target { get { return target; } }
@@ -23,9 +27,15 @@ public class Tower : MonoBehaviour {
     }
 
     private void Update() {
-        GetTarget();
-        FireControl();
-        CheckRangeToTarget();
+        if (isBuiltYet) {
+            GetTarget();
+            FireControl();
+            CheckRangeToTarget();
+        } else {
+            // TODO - Different building system for click placement.  Maybe change to this later.
+            //print("not built yet - stick with the mouse");
+            //Vector3 position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
+        }
     }
 
     void GetTarget() {
