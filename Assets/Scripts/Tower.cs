@@ -11,6 +11,9 @@ public class Tower : MonoBehaviour {
     [SerializeField] int towerCost;
     public int TowerCost { get { return towerCost; } }
 
+    [SerializeField] GameObject rangeCircle;
+    public bool RangeCircle { set { rangeCircle.SetActive(value); } }
+
     [SerializeField] bool isBuiltYet = true;
 
     [SerializeField] GameObject target;

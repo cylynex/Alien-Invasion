@@ -22,26 +22,27 @@ public class TowerBuilderMenu : MonoBehaviour {
     }
 
     public void SelectTower(GameObject tower) {
+        gc.CreateTower(tower);
+
+        /*
         if (gc.CreateTower(activeTile.transform, tower)) {
-            activeTile.GetComponent<Tile>().IsOccupied = true;
-            UnColor();
             gameObject.SetActive(false);
         } else {
             UnColor();
             gameObject.SetActive(false);
         }
+        */
+        gameObject.SetActive(false);
     }
 
     public void EngageTile(GameObject targetTile) {
-        if (activeTile != null) UnColor();
+        //if (activeTile != null) UnColor();
+        //activeTile = targetTile;
         activeTile = targetTile;
-        activeTile.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+        Invoke("SendTile", .01f); // TODO Figure out why this isnt populating fast enough to require a delay.
     }
 
-    void UnColor() {
-        activeTile.GetComponentInChildren<MeshRenderer>().material.color = activeTile.GetComponent<Tile>().OriginalColor;
+    void SendTile() {
+        gc.SetActiveTile(activeTile);
     }
-
-
-
 }

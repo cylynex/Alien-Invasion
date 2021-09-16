@@ -7,23 +7,28 @@ public class GameController : MonoBehaviour {
 
     [SerializeField] Text errorText;
     Resources resources;
+    GameObject activeTile;
+    public GameObject ActiveTile { set { activeTile = value; } }
 
     private void Start() {
         resources = FindObjectOfType<Resources>();
         errorText.text = "";
     }
 
-    public bool CreateTower(Transform location, GameObject tower) {
+    public void CreateTower(GameObject tower) {
         int cost = tower.GetComponent<Tower>().TowerCost;
+        Transform location = activeTile.transform;
+
         if (resources.Money >= cost) {
             float yPos = location.position.y + 5;
             Vector3 towerSpot = new Vector3(location.position.x, yPos, location.position.z);
             GameObject thisTower = Instantiate(tower, towerSpot, Quaternion.identity);
+            location.gameObject.GetComponent<Tile>().SetTower(thisTower);
             resources.TakeMoney(cost);
-            return true;
+            activeTile.GetComponent<Tile>().IsOccupied = true;
+            UnColor();
         } else {
             SetErrorText("Insufficient Funds");
-            return false;
         }
     }
 
@@ -41,6 +46,20 @@ public class GameController : MonoBehaviour {
 
     void ClearText() {
         errorText.text = "";
+    }
+
+    void Color() {
+        activeTile.GetComponentInChildren<MeshRenderer>().sharedMaterial.color = activeTile.GetComponent<Tile>().HighlightColor;
+    }
+
+    public void UnColor() {
+        activeTile.GetComponentInChildren<MeshRenderer>().material.color = activeTile.GetComponent<Tile>().OriginalColor;
+    }
+
+    public void SetActiveTile(GameObject tile) {
+        if (activeTile != null) UnColor();
+        activeTile = tile;
+        Color();
     }
 
 }
