@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
-    //[SerializeField] GameObject tower;
     [SerializeField] Text errorText;
     Resources resources;
 

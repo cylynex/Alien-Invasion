@@ -38,9 +38,8 @@ public class TowerBuilderMenu : MonoBehaviour {
         activeTile.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
     }
 
-    // TODO - Make this get its original color and flip it back not turn it white.
     void UnColor() {
-        activeTile.GetComponentInChildren<MeshRenderer>().material.color = Color.white;
+        activeTile.GetComponentInChildren<MeshRenderer>().material.color = activeTile.GetComponent<Tile>().OriginalColor;
     }
 
 
